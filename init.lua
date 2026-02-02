@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 require("config.lazy")
 
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
@@ -10,6 +13,7 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.relativenumber = true
+vim.opt.cmdheight = 0
 vim.opt.fillchars = { eob = " " }
 vim.opt.list = true
 
@@ -18,11 +22,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   command = [[%s/\s\+$//e]],
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  callback = function()
-    vim.lsp.buf.format({ async = false })
-  end,
-})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",

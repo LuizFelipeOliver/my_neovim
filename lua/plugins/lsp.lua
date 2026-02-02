@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       'saghen/blink.cmp',
       {
@@ -15,21 +16,45 @@ return {
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+      vim.lsp.config('*', { capabilities = capabilities })
+
       vim.lsp.config('lua_ls', {
-        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = { globals = { 'vim' } },
+          },
+        },
       })
-      vim.lsp.enable('lua_ls')
 
       vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('LspKeymaps', { clear = true }),
         callback = function(args)
-          local c = vim.lsp.get_client_by_id(args.data.client_id)
-          if not c then return end
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if not client then return end
 
-          if vim.bo.filetype == "lua" then
+          local opts = { buffer = args.buf }
+
+          -- Navegação
+          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+          vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+
+          -- Diagnósticos
+          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+          vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+          vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
+
+          -- Ações
+          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+          vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+          vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format({ async = true }) end, opts)
+
+          -- Format on save
+          if client:supports_method('textDocument/formatting') then
             vim.api.nvim_create_autocmd('BufWritePre', {
               buffer = args.buf,
               callback = function()
-                vim.lsp.buf.format({ bufnr = args.buf, id = c.id })
+                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
               end,
             })
           end
