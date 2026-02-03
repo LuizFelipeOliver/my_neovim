@@ -13,6 +13,7 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.relativenumber = true
+vim.opt.scrolloff = 999
 vim.opt.cmdheight = 0
 vim.opt.fillchars = { eob = " " }
 vim.opt.list = true

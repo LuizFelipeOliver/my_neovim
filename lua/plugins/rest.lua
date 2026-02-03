@@ -7,12 +7,27 @@ return {
 
       kulala.setup({
         display_mode = "float",
+        disable_folding = true,
         float_options = {
           relative = "editor",
           width = 0.8,
           height = 0.8,
           border = "rounded",
+          max_body_lines = 0,
         },
+      })
+
+      -- Desabilita folding no buffer de resposta do kulala
+      vim.api.nvim_create_autocmd("BufWinEnter", {
+        callback = function()
+          local bufname = vim.api.nvim_buf_get_name(0)
+          if bufname:match("kulala") or bufname:match("rest%-nvim") then
+            vim.opt_local.foldenable = false
+            vim.opt_local.foldmethod = "manual"
+            vim.opt_local.foldlevel = 99
+            vim.cmd("normal! zR")
+          end
+        end,
       })
 
       vim.keymap.set("n", "<space>Rr", kulala.run, { desc = "Run request" })

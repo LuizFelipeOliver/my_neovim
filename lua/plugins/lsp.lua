@@ -12,9 +12,21 @@ return {
           },
         },
       },
+      {
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = function()
+          require("lsp_lines").setup()
+        end,
+      },
     },
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+      -- Desabilita virtual_text para usar lsp_lines
+      vim.diagnostic.config({
+        virtual_text = false,
+        virtual_lines = true,
+      })
 
       vim.lsp.config('*', { capabilities = capabilities })
 
