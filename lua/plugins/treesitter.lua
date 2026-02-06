@@ -5,16 +5,11 @@ return {
     config = function()
       require 'nvim-treesitter.configs'.setup {
         ensure_installed = {
-          "c",
           "lua",
-          "vim",
-          "vimdoc",
           "query",
           "markdown",
+          "java",
           "markdown_inline",
-          "cpp",
-          "python",
-          "nasm",
           "bash",
           "dockerfile",
           "http",

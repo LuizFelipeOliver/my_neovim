@@ -1,7 +1,8 @@
 return {
-  "mfussenegger/nvim-jdtls",
-  ft = "java",
-  config = function()
 
-  end
+  'nvim-java/nvim-java',
+  config = function()
+    require('java').setup()
+    vim.lsp.enable('jdtls')
+  end,
 }
