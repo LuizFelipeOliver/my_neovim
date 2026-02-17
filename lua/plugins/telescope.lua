@@ -23,7 +23,7 @@ return {
       vim.keymap.set("n", "<space>fh", builtin.help_tags)
       vim.keymap.set("n", "<space>fk", builtin.keymaps)
       vim.keymap.set("n", "<space>fd", builtin.find_files)
-      vim.keymap.set("n", "<space>en", function()
+      vim.keymap.set("n", "<space>ve", function()
         builtin.find_files {
           cwd = vim.fn.stdpath("config")
         }
