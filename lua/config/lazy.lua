@@ -16,15 +16,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    {
-      "ribru17/bamboo.nvim",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        require("bamboo").setup({})
-        require("bamboo").load()
-      end,
-    },
     { import = "plugins" },
   },
 })

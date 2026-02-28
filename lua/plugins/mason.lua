@@ -18,15 +18,11 @@ return {
       "neovim/nvim-lspconfig",
     },
     opts = {
-      -- LSPs que serão instalados automaticamente
       ensure_installed = {
         "lua_ls",
-        -- Adicione outros LSPs aqui, ex:
-        -- "ts_ls",
-        -- "pyright",
-        -- "gopls",
+        "marksman",
+        "jsonls",
       },
-      -- Configura automaticamente os LSPs instalados
       automatic_enable = true,
     },
   },
