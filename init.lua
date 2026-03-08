@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("config.lazy")
+require("config.language")
 
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
@@ -14,7 +15,7 @@ vim.opt.expandtab = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 999
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 vim.opt.fillchars = { eob = " " }
 vim.opt.list = true
 

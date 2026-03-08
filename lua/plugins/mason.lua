@@ -21,7 +21,6 @@ return {
       ensure_installed = {
         "lua_ls",
         "marksman",
-        "jsonls",
       },
       automatic_enable = true,
     },
