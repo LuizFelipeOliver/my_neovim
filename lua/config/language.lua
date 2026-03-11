@@ -3,7 +3,7 @@ local function get_files()
   return vim.tbl_map(function(f) return vim.fn.fnamemodify(f, ":t:r") end, files)
 end
 
-vim.api.nvim_create_user_command("Install", function(opts)
+vim.api.nvim_create_user_command("ILang", function(opts)
   local language = opts.args
   local ok, spec = pcall(require, "config.lang." .. language)
 
@@ -19,7 +19,7 @@ end, {
   complete = get_files,
 })
 
-vim.api.nvim_create_user_command("Uninstall", function(opts)
+vim.api.nvim_create_user_command("ULang", function(opts)
   local language = opts.args
   local ok, spec = pcall(require, "config.lang." .. language)
 
