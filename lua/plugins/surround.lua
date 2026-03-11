@@ -3,9 +3,9 @@ return {
   version = "*",
   opts = {
     mappings = {
-      add = "gsa",
-      delete = "gsd",
-      replace = "gsr",
+      add = "ys",
+      delete = "ds",
+      replace = "cs",
       find = "gsf",
       find_left = "gsF",
       highlight = "gsh",
