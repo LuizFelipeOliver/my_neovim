@@ -3,6 +3,7 @@ vim.g.maplocalleader = " "
 
 require("config.lazy")
 require("config.language")
+require("config.notes")
 
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
