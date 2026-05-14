@@ -4,6 +4,8 @@ vim.g.maplocalleader = " "
 require("config.lazy")
 require("config.language")
 require("config.notes")
+require("config.autocomplete")
+require('vim._core.ui2').enable()
 
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
@@ -20,6 +22,7 @@ vim.opt.scrolloff = 999
 vim.opt.cmdheight = 1
 vim.opt.fillchars = { eob = " " }
 vim.opt.list = true
+
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
