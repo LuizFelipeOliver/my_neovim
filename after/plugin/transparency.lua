@@ -1,32 +1,32 @@
--- Configuração de transparência para Neovim
--- Remove o fundo de todos os elementos para permitir transparência do terminal
+-- Transparency configuration for Neovim
+-- Removes the background from UI elements to allow terminal transparency
 
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
-    -- Fundo principal
+    -- Main background
     vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
 
-    -- Linha de números e sinais
+    -- Number line and signs
     vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "NONE", ctermbg = "NONE" })
 
-    -- Statusline e tabline
+    -- Statusline and tabline
     vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE", ctermbg = "NONE" })
 
-    -- Menus e popups
+    -- Menus and popups
     vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "PmenuSel", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "NONE", ctermbg = "NONE" })
 
-    -- Folds e colunas
+    -- Folds and columns
     vim.api.nvim_set_hl(0, "Folded", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "FoldColumn", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "ColorColumn", { bg = "NONE", ctermbg = "NONE" })
@@ -42,14 +42,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     -- End of buffer
     vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE", ctermbg = "NONE" })
 
-    -- Telescope (se estiver usando)
+    -- Telescope, if enabled
     vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "NONE", ctermbg = "NONE" })
 
-    -- NvimTree / Neo-tree (se estiver usando)
+    -- NvimTree / Neo-tree, if enabled
     vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE", ctermbg = "NONE" })
@@ -63,5 +63,5 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
--- Aplica imediatamente ao carregar
+-- Applies immediately on load
 vim.cmd("doautocmd ColorScheme")

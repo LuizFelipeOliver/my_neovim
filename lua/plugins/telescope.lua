@@ -24,8 +24,8 @@ return {
           cwd = vim.fn.stdpath("config"),
         })
       end)
-      vim.keymap.set("n", "<space>gf", builtin.git_files)
-      vim.keymap.set("n", "<space>gb", builtin.git_branches)
+      vim.keymap.set("n", "<space>Gf", builtin.git_files)
+      vim.keymap.set("n", "<space>Gb", builtin.git_branches)
 
       vim.keymap.set("n", "<space>fg", function()
         require("config.telescope.multigrep").live_multigrep()
