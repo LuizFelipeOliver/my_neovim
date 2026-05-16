@@ -1,6 +1,9 @@
 return {
   {
     "echasnovski/mini.nvim",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
     lazy = false,
     priority = 1000,
     config = function()
@@ -10,6 +13,18 @@ return {
       require("mini.pairs").setup()
       require("mini.indentscope").setup({
         symbol = "│",
+      })
+      local snippets = require("mini.snippets")
+      snippets.setup({
+        snippets = {
+          snippets.gen_loader.from_lang(),
+        },
+        mappings = {
+          expand = "<C-j>",
+          jump_next = "",
+          jump_prev = "",
+          stop = "<C-c>",
+        },
       })
 
       local hipatterns = require("mini.hipatterns")

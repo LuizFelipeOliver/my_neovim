@@ -8,12 +8,12 @@ vim.api.nvim_create_user_command("ILang", function(opts)
   local ok, spec = pcall(require, "config.lang." .. language)
 
   if not ok then
-    vim.notify("Linguagem não encontrada: " .. language, vim.log.levels.ERROR)
+    vim.notify("Language not found: " .. language, vim.log.levels.ERROR)
     return
   end
 
   vim.tbl_map(vim.cmd, spec.install or {})
-  vim.notify("Instalando ambiente: " .. language, vim.log.levels.INFO)
+  vim.notify("Installing environment: " .. language, vim.log.levels.INFO)
 end, {
   nargs = 1,
   complete = get_files,
@@ -24,12 +24,12 @@ vim.api.nvim_create_user_command("ULang", function(opts)
   local ok, spec = pcall(require, "config.lang." .. language)
 
   if not ok then
-    vim.notify("Linguagem não encontrada: " .. language, vim.log.levels.ERROR)
+    vim.notify("Language not found: " .. language, vim.log.levels.ERROR)
     return
   end
 
   vim.tbl_map(vim.cmd, spec.uninstall or {})
-  vim.notify("Desinstalando ambiente: " .. language, vim.log.levels.INFO)
+  vim.notify("Uninstalling environment: " .. language, vim.log.levels.INFO)
 end, {
   nargs = 1,
   complete = get_files,
