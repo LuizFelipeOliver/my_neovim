@@ -1,47 +1,47 @@
 return {
-  {
-    "nvim-telescope/telescope.nvim",
-    version = "*",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    },
-    config = function()
-      local builtin = require("telescope.builtin")
-      require("telescope").setup({
-        defaults = require("telescope.themes").get_ivy(),
-        extensions = {
-          fzf = {},
+    {
+        "nvim-telescope/telescope.nvim",
+        version = "*",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
-      })
-      require("telescope").load_extension("fzf")
+        config = function()
+            local builtin = require("telescope.builtin")
+            require("telescope").setup({
+                defaults = require("telescope.themes").get_ivy(),
+                extensions = {
+                    fzf = {},
+                },
+            })
+            require("telescope").load_extension("fzf")
 
-      vim.keymap.set("n", "<space>fh", builtin.help_tags)
-      vim.keymap.set("n", "<space>fk", builtin.keymaps)
-      vim.keymap.set("n", "<space>fd", builtin.find_files)
-      vim.keymap.set("n", "<space>ve", function()
-        builtin.find_files({
-          cwd = vim.fn.stdpath("config"),
-        })
-      end)
-      vim.keymap.set("n", "<space>Gf", builtin.git_files)
-      vim.keymap.set("n", "<space>Gb", builtin.git_branches)
+            vim.keymap.set("n", "<leader>fh", builtin.help_tags)
+            vim.keymap.set("n", "<leader>fk", builtin.keymaps)
+            vim.keymap.set("n", "<leader>fd", builtin.find_files)
+            vim.keymap.set("n", "<leader>ve", function()
+                builtin.find_files({
+                    cwd = vim.fn.stdpath("config"),
+                })
+            end)
+            vim.keymap.set("n", "<leader>Gf", builtin.git_files)
+            vim.keymap.set("n", "<leader>Gb", builtin.git_branches)
 
-      vim.keymap.set("n", "<space>fg", function()
-        require("config.telescope.multigrep").live_multigrep()
-      end, { desc = "Live multigrep" })
+            vim.keymap.set("n", "<leader>fg", function()
+                require("config.telescope.multigrep").live_multigrep()
+            end, { desc = "Live multigrep" })
 
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("TelescopeLspKeymaps", { clear = true }),
-        callback = function(args)
-          local opts = { buffer = args.buf }
-          vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
-          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-          vim.keymap.set("n", "gr", builtin.lsp_references, opts)
-          vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
-          vim.keymap.set("n", "gt", builtin.lsp_type_definitions, opts)
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = vim.api.nvim_create_augroup("TelescopeLspKeymaps", { clear = true }),
+                callback = function(args)
+                    local opts = { buffer = args.buf }
+                    vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
+                    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+                    vim.keymap.set("n", "gr", builtin.lsp_references, opts)
+                    vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
+                    vim.keymap.set("n", "gt", builtin.lsp_type_definitions, opts)
+                end,
+            })
         end,
-      })
-    end,
-  },
+    },
 }

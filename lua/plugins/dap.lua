@@ -21,7 +21,8 @@ return {
       { "<leader>de", function() require("dapui").eval() end,                                    desc = "Eval",                  mode = { "n", "v" } },
     },
     config = function()
-      require("config.dap").setup()
+      require("dapui").setup()
+      require("nvim-dap-virtual-text").setup()
     end,
   },
   {

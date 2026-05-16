@@ -7,9 +7,12 @@ return {
             "antoinemadec/FixCursorHold.nvim",
             {
                 "fredrikaverpil/neotest-golang",
-                version = "*",                                                              -- Optional, but recommended; track releases
+                version = "*", -- Optional, but recommended; track releases
                 build = function()
-                    vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait() -- Optional, but recommended
+                    local result = vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait()
+                    if result.code ~= 0 then
+                        error("Falha ao instalar gotestsum: " .. (result.stderr or "erro desconhecido"))
+                    end
                 end,
             },
         },

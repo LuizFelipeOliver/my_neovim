@@ -1,5 +1,5 @@
 return {
-    'stevearc/overseer.nvim',
+    "stevearc/overseer.nvim",
     ---@module 'overseer'
     ---@type overseer.SetupOpts
     opts = {
@@ -9,7 +9,6 @@ return {
             max_height = 20,
             default_detail = 1,
         },
-        templates = require("config.overseer.templates"),
     },
     keys = {
         { "<leader>or", "<cmd>OverseerRun<cr>", desc = "Run task" },

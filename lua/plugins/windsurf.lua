@@ -11,6 +11,7 @@ return {
         virtual_text = {
           enabled = true,
           manual = false,
+          accept_fallback = "<C-v><Tab>",
           key_bindings = {
             accept = "<Tab>",
             accept_word = false,

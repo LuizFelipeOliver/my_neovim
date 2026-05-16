@@ -40,6 +40,15 @@ return {
                         return
                     end
 
+                    local hover_clients = vim.lsp.get_clients({
+                        bufnr = 0,
+                        method = "textDocument/hover",
+                    })
+
+                    if #hover_clients == 0 then
+                        return
+                    end
+
                     vim.lsp.buf.hover()
                 end,
             })
