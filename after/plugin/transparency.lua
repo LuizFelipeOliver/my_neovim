@@ -7,7 +7,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     -- Main background
     vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
     vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
 
     -- Number line and signs
     vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE", ctermbg = "NONE" })

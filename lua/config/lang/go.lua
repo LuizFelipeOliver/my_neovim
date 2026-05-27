@@ -1,10 +1,10 @@
 return {
   install = {
     "TSInstall go",
-    "MasonInstall gopls",
+    "MasonInstall gopls golangci-lint",
   },
   uninstall = {
     "TSUninstall go",
-    "MasonUninstall gopls",
+    "MasonUninstall gopls golangci-lint",
   }
 }

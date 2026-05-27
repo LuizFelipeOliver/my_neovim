@@ -53,15 +53,6 @@ return {
                 end,
             })
 
-            vim.lsp.config('lua_ls', {
-                settings = {
-                    Lua = {
-                        diagnostics = { globals = { 'vim' } },
-                    },
-                },
-            })
-            local format_group = vim.api.nvim_create_augroup('LspFormatOnSave', { clear = false })
-
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('LspKeymaps', { clear = true }),
                 callback = function(args)
@@ -70,31 +61,18 @@ return {
 
                     local opts = { buffer = args.buf }
 
-                    -- Navigation
                     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
                     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 
-                    -- Diagnostics
                     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
                     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
-                    -- Actions
                     vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, opts)
                     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-
-                    -- Format on save
-                    if client:supports_method('textDocument/formatting') then
-                        vim.api.nvim_clear_autocmds({ group = format_group, buffer = args.buf })
-                        vim.api.nvim_create_autocmd('BufWritePre', {
-                            group = format_group,
-                            buffer = args.buf,
-                            callback = function()
-                                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-                            end,
-                        })
-                    end
                 end,
             })
+
+            require("config.lsp")
         end,
     }
 }
