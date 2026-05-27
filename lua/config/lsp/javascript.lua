@@ -1,6 +1,15 @@
 vim.lsp.config('vtsls', {
     settings = {
-        complete_function_call = true,
+        typescript = {
+            suggest = {
+                completeFunctionCalls = true,
+            },
+        },
+        javascript = {
+            suggest = {
+                completeFunctionCalls = true,
+            },
+        },
         tsserver = {
             format = {
                 enable = true,
