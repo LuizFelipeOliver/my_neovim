@@ -21,6 +21,10 @@ return {
       ensure_installed = {
         "lua_ls",
         "marksman",
+        "gopls",
+        "vtsls",
+        "phpactor",
+        "eslint",
       },
       automatic_enable = true,
     },

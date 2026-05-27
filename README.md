@@ -1,49 +1,49 @@
 # My Neovim Config
 
-Configuração personalizada do Neovim usando Lazy.nvim como gerenciador de plugins.
+Personal Neovim configuration using Lazy.nvim as the plugin manager.
 
-## Como usar
+## Usage
 
-Esta configuração usa a variável `NVIM_APPNAME` para carregar uma config separada.
+This configuration uses the `NVIM_APPNAME` variable to load a separate config.
 
 ```bash
 NVIM_APPNAME=my_neovim nvim
 ```
 
-### Criar um alias (opcional)
+### Create an alias (optional)
 
-Adicione ao seu `.bashrc` ou `.zshrc`:
+Add this to your `.bashrc` or `.zshrc`:
 
 ```bash
 alias mvim="NVIM_APPNAME=my_neovim nvim"
 ```
 
-Depois recarregue o shell:
+Then reload your shell:
 
 ```bash
-source ~/.bashrc  # ou source ~/.zshrc
+source ~/.bashrc  # or source ~/.zshrc
 ```
 
-Agora basta usar:
+Then use:
 
 ```bash
-mvim arquivo.txt
+mvim file.txt
 ```
 
-## Plugins instalados
+## Installed Plugins
 
-- **lazy.nvim** - Gerenciador de plugins
-- **bamboo.nvim** - Tema
+- **lazy.nvim** - Plugin manager
+- **bamboo.nvim** - Theme
 - **nvim-treesitter** - Syntax highlighting
-- **mason.nvim** - Gerenciador de LSP/formatters/linters
-- **nvim-lspconfig** - Configuração de LSP
-- **mini.nvim** - Utilitários (statusline, etc.)
+- **mason.nvim** - LSP/formatter/linter manager
+- **nvim-lspconfig** - LSP configuration
+- **mini.nvim** - Utilities (statusline, etc.)
 
-## Comandos úteis
+## Useful Commands
 
-| Comando | Descrição |
+| Command | Description |
 |---------|-----------|
-| `:Mason` | Abre o gerenciador de pacotes LSP |
-| `:Lazy` | Abre o gerenciador de plugins |
-| `<space><space>x` | Executa o arquivo atual como Lua |
-| `<space>x` | Executa a linha/seleção como Lua |
+| `:Mason` | Opens the LSP package manager |
+| `:Lazy` | Opens the plugin manager |
+| `<space>vs` | Sources the current file |
+| `<space>vx` | Executes the current Lua line or visual selection |

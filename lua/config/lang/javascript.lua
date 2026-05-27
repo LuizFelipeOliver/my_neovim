@@ -1,10 +1,10 @@
 return {
   install = {
     "TSInstall javascript typescript tsx",
-    "MasonInstall vtsls prettier",
+    "MasonInstall vtsls eslint prettier",
   },
   uninstall = {
     "TSUninstall javascript typescript tsx",
-    "MasonUninstall vtsls prettier",
+    "MasonUninstall vtsls eslint prettier",
   }
 }

@@ -1,10 +1,10 @@
 return {
   install = {
     "TSInstall php twig blade",
-    "MasonInstall intelephense phpstan php-cs-fixer pint blade-formatter twigcs",
+    "MasonInstall phpactor phpstan pint blade-formatter",
   },
   uninstall = {
     "TSUninstall php twig blade",
-    "MasonUninstall intelephense phpstan php-cs-fixer pint blade-formatter twigcs",
+    "MasonUninstall phpactor phpstan pint blade-formatter",
   }
 }
