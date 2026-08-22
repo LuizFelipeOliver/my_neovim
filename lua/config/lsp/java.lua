@@ -1,14 +1,10 @@
-local mason_jdtls = vim.fn.stdpath('data') .. '/mason/packages/vscode-spring-boot-tools/jdtls'
+local mason_jdtls = vim.fn.stdpath('data') .. '/mason/share/vscode-spring-boot-tools/jdtls'
 
-local extension_jars = {
-    mason_jdtls .. '/jdt-ls-extension.jar',
-    mason_jdtls .. '/jdt-ls-commons.jar',
-    mason_jdtls .. '/commons-lsp-extensions.jar',
-}
+local extension_jars = vim.fn.glob(mason_jdtls .. '/*.jar', true, true)
 
 local cmd = { 'jdtls' }
 
-if vim.fn.isdirectory(mason_jdtls) == 1 then
+if #extension_jars > 0 then
     table.insert(cmd, '--jvm-arg=-Dorg.eclipse.jdt.ls.extension.paths=' .. table.concat(extension_jars, ','))
 end
 
