@@ -16,6 +16,7 @@ return {
 			{ "<leader>T", group = "Tools" },
 			{ "<leader>v", group = "Vim/Neovim" },
 			{ "<leader>d", group = "Debug" },
+			{ "<leader>a", group = "Ai" },
 			{ "g", group = "Goto" },
 		},
 	},
