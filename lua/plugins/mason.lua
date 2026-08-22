@@ -1,32 +1,31 @@
 return {
-  {
-    "mason-org/mason.nvim",
-    opts = {
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
-      },
-    },
-  },
-  {
-    "mason-org/mason-lspconfig.nvim",
-    dependencies = {
-      "mason-org/mason.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    opts = {
-      ensure_installed = {
-        "lua_ls",
-        "marksman",
-        "gopls",
-        "vtsls",
-        "phpactor",
-        "eslint",
-      },
-      automatic_enable = true,
-    },
-  },
+	{
+		"mason-org/mason.nvim",
+		opts = {
+			ui = {
+				icons = {
+					package_installed = "✓",
+					package_pending = "➜",
+					package_uninstalled = "✗",
+				},
+			},
+		},
+	},
+	{
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = {
+			"mason-org/mason.nvim",
+			"neovim/nvim-lspconfig",
+		},
+		opts = {
+			ensure_installed = {
+				"lua_ls",
+				"marksman",
+				"gopls",
+				"phpactor",
+				"eslint",
+			},
+			automatic_enable = true,
+		},
+	},
 }
