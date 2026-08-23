@@ -23,7 +23,7 @@ return function()
 
 		defaults = {
 			mcpServers = {},
-			timeout = 20000,
+			timeout = 60000,
 		},
 
 		parameters = {
@@ -33,6 +33,8 @@ return function()
 					readTextFile = true,
 					writeTextFile = true,
 				},
+				partialContent = true,
+				messageGrouping = true,
 			},
 			clientInfo = {
 				name = "Neovim",
