@@ -1,4 +1,0 @@
-return {
-	current = "devin",
-}
-
