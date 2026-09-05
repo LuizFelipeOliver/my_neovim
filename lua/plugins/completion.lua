@@ -3,7 +3,6 @@ return {
 	dependencies = {
 		"saghen/blink.lib",
 		"echasnovski/mini.nvim",
-		"Exafunction/windsurf.nvim",
 	},
 
 	---@module 'blink.cmp'
@@ -34,14 +33,7 @@ return {
 		-- (Default) list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "codeium" },
-			providers = {
-				codeium = {
-					name = "Windsurf",
-					module = "codeium.blink",
-					async = true,
-				},
-			},
+			default = { "lsp", "path", "snippets", "buffer" },
 		},
 
 		-- Use the Lua matcher to avoid needing the Rust binary/build step.

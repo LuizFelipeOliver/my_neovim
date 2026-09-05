@@ -5,7 +5,6 @@ require("config.lazy")
 require("config.language")
 require("config.notes")
 require("config.autocomplete")
-require("vim._core.ui2").enable()
 
 vim.keymap.set("n", "<leader>vs", "<cmd>source %<CR>", { desc = "Source current file" })
 vim.keymap.set("n", "<leader>vx", ":.lua<CR>", { desc = "Execute Lua line" })
