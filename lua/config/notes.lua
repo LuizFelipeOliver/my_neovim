@@ -56,12 +56,12 @@ local function open_notes_popup(notes_file)
     })
 end
 
-vim.keymap.set("n", "<leader>Tn", function()
+vim.keymap.set("n", "<leader>tn", function()
     local notes_file = vim.fn.getcwd() .. "/.notes/notes.md"
     open_notes_popup(notes_file)
 end, { desc = "Open project notes.md" })
 
-vim.keymap.set("n", "<leader>Tl", function()
+vim.keymap.set("n", "<leader>tl", function()
     local notes_file = vim.fn.stdpath("config") .. "/.notes/note.md"
     open_notes_popup(notes_file)
 end, { desc = "Open global note.md" })

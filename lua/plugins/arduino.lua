@@ -4,7 +4,6 @@ return {
 	opts = {},
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
-		"neovim/nvim-lspconfig",
 	},
 	init = function()
 		vim.filetype.add({ extension = { ino = "arduino" } })
