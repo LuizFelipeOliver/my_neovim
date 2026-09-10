@@ -22,7 +22,7 @@ return {
 		-- See :h blink-cmp-config-keymap for defining your own keymap
 		keymap = { preset = "default" },
 
-		snippets = { preset = "mini_snippets" },
+		snippets = { preset = "default" },
 
 		completion = {
 			-- Only show the documentation popup when manually triggered

@@ -5,7 +5,17 @@ return {
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
       "nvim-neotest/nvim-nio",
-      "jay-babu/mason-nvim-dap.nvim",
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        dependencies = { "mason-org/mason.nvim" },
+        opts = {
+          ensure_installed = {
+            "delve",
+          },
+          automatic_installation = true,
+          handlers = {},
+        },
+      },
     },
     keys = {
       { "<leader>db", function() require("dap").toggle_breakpoint() end,                         desc = "Toggle Breakpoint" },
@@ -25,16 +35,5 @@ return {
       require("nvim-dap-virtual-text").setup()
       require("config.dap")
     end,
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    dependencies = { "mason-org/mason.nvim" },
-    opts = {
-      ensure_installed = {
-        "delve",
-      },
-      automatic_installation = true,
-      handlers = {},
-    },
   },
 }

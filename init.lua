@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("config.lazy")
-require("config.language")
+require("config.lsp")
 require("config.notes")
 require("config.autocomplete")
 require("vim._core.ui2").enable()
