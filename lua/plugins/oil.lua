@@ -17,7 +17,11 @@ return {
 		float = {
 			preview_split = "right",
 		},
-		columns = { "icon" },
+		columns = {
+			"icon",
+			"permissions",
+			"size",
+		},
 		keymaps = {
 			["<C-p>"] = {
 				"actions.preview",
