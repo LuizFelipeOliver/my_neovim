@@ -2,6 +2,7 @@ require("config.lsp.go")
 require("config.lsp.php")
 require("config.lsp.javascript")
 require("config.lsp.lua")
+require("config.lsp.cpp")
 
 vim.diagnostic.config({
 	virtual_text = false,
@@ -66,4 +67,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Nativo 0.11+: dispensa mason-lspconfig/automatic_enable
-vim.lsp.enable({ "gopls", "phpactor", "vtsls", "lua_ls" })
+vim.lsp.enable({ "gopls", "phpactor", "vtsls", "lua_ls", "clangd" })

@@ -11,11 +11,6 @@ return {
 					"markdown_inline",
 					"bash",
 					"json",
-					"go",
-					"php",
-					"javascript",
-					"typescript",
-					"html",
 				},
 			})
 
